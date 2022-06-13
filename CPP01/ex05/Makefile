@@ -6,13 +6,13 @@
 #    By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 16:48:15 by daalmeid          #+#    #+#              #
-#    Updated: 2022/05/24 09:34:10 by daalmeid         ###   ########.fr        #
+#    Updated: 2022/05/24 13:01:58 by daalmeid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ################## Program #################
 
-NAME 	= 		HomemadeSed
+NAME 	= 		HarlProg
 
 ################## COLORS ##################
 
@@ -31,7 +31,8 @@ FLAGS	=		-Wall -Werror -Wextra -std=c++98
 
 ################## FILES ###################
 
-SRCS	=		main.cpp
+SRCS	=		main.cpp\
+				Harl.cpp
 
 OBJS	=		$(addprefix srcs/, $(SRCS:.cpp=.o))
 
@@ -53,9 +54,4 @@ fclean: clean
 
 re: fclean all
 
-test: $(NAME)
-	./$(NAME) Makefile "*" Y
-	./$(NAME) test.txt " " ""
-	./$(NAME) srcs/main.cpp "" "jfdds"
-
-.PHONY: all clean fclean re test
+.PHONY: all clean fclean re

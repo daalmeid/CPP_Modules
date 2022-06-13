@@ -1,0 +1,10 @@
+Introduction
+Hooking is used for many purposes, including debugging and extending functionality. 
+Examples might include intercepting keyboard or mouse event messages before they reach an application,
+or intercepting operating system calls in order to monitor behavior or modify the function of an
+application or another component. It is also widely used in benchmarking programs,
+for example to measure frame rate in 3D games, where the output and input is done
+through hooking.
+
+Simply put, it is therefore not weird that hooking is the backbone of MiniLibX.
+

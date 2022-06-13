@@ -6,38 +6,37 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 14:47:09 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/05/23 10:38:51 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/05/24 15:39:56 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include <iostream>
+#include <string>
+#include "Harl.hpp"
 
-int	main(void) {
+int	main(int argc, char **argv) {
 
+	if (argc != 2)
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		std::cout << "Wrong input, expected: ./harlFilter <filter>" << std::endl;
+		return 1;
 	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	{
-		Weapon sword = Weapon("a well crafted sword");
-		HumanB sirStabsalot("Sir Stabs-a-lot");
-		sirStabsalot.attack();
-		sirStabsalot.setWeapon(sword);
-		sirStabsalot.attack();
-		sword.setType("a crappy sword");
-		sirStabsalot.attack();
-	}
+	
+	std::string	newFilter;
+	newFilter = (argv[1]);
+	
+	Harl	newHarl(newFilter);
+
+	newHarl.complain("DEBUG");
+	std::cout << std::endl;
+	newHarl.complain("INFO");
+	std::cout << std::endl;
+	newHarl.complain("WARNING");
+	std::cout << std::endl;
+	newHarl.complain("ERROR");
+	std::cout << std::endl;
+	newHarl.complain("STUPID");
+	std::cout << std::endl;
+	newHarl.complain("");
 	return 0;
 }
