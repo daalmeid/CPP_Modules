@@ -6,15 +6,15 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:07 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/03 12:34:01 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:30:08 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat(void) {
+WrongCat::WrongCat(void): WrongAnimal() {
 
-	WrongAnimal::_type = "WrongCat";
+	this->_type = "WrongCat";
 	std::cout << "WrongCat constructor called" << std::endl;
 }
 

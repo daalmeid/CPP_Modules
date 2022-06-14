@@ -6,16 +6,16 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:45 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/06 16:41:25 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:37:32 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) {
+Dog::Dog(void): AAnimal() {
 
 	std::cout << "Default Dog constructor called" << std::endl;
-	AAnimal::_type = "Dog";
+	this->_type = "Dog";
 	this->dogBrain = new Brain;
 }
 
@@ -25,7 +25,7 @@ Dog::~Dog(void) {
 	delete dogBrain;
 }
 
-Dog::Dog(Dog const& src) {
+Dog::Dog(Dog const& src): AAnimal() {
 
 	std::cout << "Copy Dog constructor called" << std::endl;
 	this->dogBrain = new Brain;

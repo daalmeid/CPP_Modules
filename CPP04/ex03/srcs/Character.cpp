@@ -94,7 +94,7 @@ void Character::unequip(int idx) {
 
 	if (idx >= 0 && idx <= 3 && this->_inventory[idx] != NULL)
 		this->_inventory[idx] = NULL;
-	else if (idx < 0 && idx > 3)
+	else if (idx < 0 || idx > 3)
 		std::cout << "Invalid index to unequip materia" << std::endl;
 	else
 		std::cout << "Empty slot!" << std::endl;

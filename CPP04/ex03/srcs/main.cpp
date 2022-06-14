@@ -18,6 +18,8 @@
 int	main(void) {
 
 	IMateriaSource* oldsrc = new MateriaSource();
+	AMateria* test = NULL;
+	oldsrc->learnMateria(test);
 	oldsrc->learnMateria(new Ice());
 	oldsrc->learnMateria(new Cure());
 	oldsrc->learnMateria(new Ice());

@@ -6,7 +6,7 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:23:36 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/03 12:26:23 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:24:43 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,43 @@ int	main(void)
 {
 	std::cout << "Good cat and animal:" << std::endl << std::endl;
 	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* new_i = new Cat();
+	const Animal* dog = new Dog();
+	const Animal* cat = new Cat();
 	std::cout << std::endl;
-	std::cout << meta->getType() << " is the type of meta;" << std::endl;
-	std::cout << j->getType() << " is the type of j;" << std::endl;
-	std::cout << new_i->getType() << " is the type of i;" << std::endl;
+	std::cout << meta->getType() << " is the type of meta variable;" << std::endl;
+	std::cout << dog->getType() << " is the type of dog variable;" << std::endl;
+	std::cout << cat->getType() << " is the type of cat variable;" << std::endl;
 	std::cout << std::endl;
-	new_i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	std::cout << cat->getType() << " says: ";
+	cat->makeSound();
+	std::cout << dog->getType() << " says: ";
+	dog->makeSound();
+	std::cout << meta->getType() << " says: ";
 	meta->makeSound();
 	std::cout << std::endl;
 	delete meta;
-	delete j;
-	delete new_i;
+	delete dog;
+	delete cat;
 	
 	std::cout << std::endl << "Wrong cat and animal:" << std::endl << std::endl;
 	meta = new Animal();
-	j = new Dog();
-	const WrongAnimal* i = new WrongCat();
+	dog = new Dog();
+	const WrongAnimal* wrongCat = new WrongCat();
 	std::cout << std::endl;
-	std::cout << meta->getType() << " is the type of meta;" << std::endl;
-	std::cout << j->getType() << " is the type of j;" << std::endl;
-	std::cout << i->getType() << " is the type of i;" << std::endl;
+	std::cout << meta->getType() << " is the type of meta variable;" << std::endl;
+	std::cout << dog->getType() << " is the type of dog variable;" << std::endl;
+	std::cout << wrongCat->getType() << " is the type of wrongCat variable;" << std::endl;
 	std::cout << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+	std::cout << wrongCat->getType() << " says: ";
+	wrongCat->makeSound();
+	std::cout << dog->getType() << " says: ";
+	dog->makeSound();
+	std::cout << meta->getType() << " says: ";
 	meta->makeSound();
 	std::cout << std::endl;
 	delete meta;
-	delete j;
-	delete i;
+	delete dog;
+	delete wrongCat;
 
 	return 0;
 }

@@ -15,7 +15,7 @@ Brain::Brain(void) {
 		thoughts.close();
 	}
 	else
-		std::cout << "Unable to open file" << std::endl;
+		std::cout << "Unable to open Thoughts.txt file" << std::endl;
 }
 
 Brain::~Brain(void) {

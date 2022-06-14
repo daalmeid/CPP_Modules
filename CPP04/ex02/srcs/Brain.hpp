@@ -17,8 +17,6 @@ class	Brain {
 
 		std::string	ideas[100];
 
-	private:
-
 };
 
 #endif

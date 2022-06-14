@@ -60,11 +60,12 @@ MateriaSource& MateriaSource::operator=(MateriaSource const & rhs) {
 
 void 	MateriaSource::learnMateria(AMateria* m) {
 
-	for (size_t i = 0; i < 4; i++)
+	for (size_t i = 0; i < 4 && m != NULL; i++)
 	{
 		if (this->_matChest[i] == NULL)
 		{
 			this->_matChest[i] = m;
+			std::cout << "New materia recipe learned: " << m->getType() << '!' << std::endl;
 			break ;
 		}
 		if (i == 3)
@@ -73,6 +74,9 @@ void 	MateriaSource::learnMateria(AMateria* m) {
 			delete m;
 		}	
 	}
+	if (m == NULL)
+		std::cout << "Invalid materia cannot be learned" << std::endl;
+
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type) {

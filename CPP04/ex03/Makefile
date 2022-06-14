@@ -6,7 +6,7 @@
 #    By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/26 16:48:15 by daalmeid          #+#    #+#              #
-#    Updated: 2022/05/20 11:00:25 by daalmeid         ###   ########.fr        #
+#    Updated: 2022/06/13 17:18:40 by daalmeid         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,26 +27,30 @@ RM		=		rm -f
 ################## COMPILER ################
 
 CMP		=		c++
-FLAGS	=		-Wall -Werror -Wextra -std=c++98 -fsanitize=address
+FLAGS	=		-Wall -Werror -Wextra -std=c++98
 
 ################## FILES ###################
 
-SRCS	=		main.cpp\
+SRCFILE	=		main.cpp\
 				AMateria.cpp\
 				Ice.cpp\
 				Cure.cpp\
 				Character.cpp\
 				MateriaSource.cpp
 
-OBJS	=		$(addprefix srcs/, $(SRCS:.cpp=.o))
+SRCCMP	=		$(addprefix srcs/, $(SRCFILE))
+
+OBJS	=		$(patsubst srcs/%.cpp, srcs/%.o, $(SRCCMP))
 
 ################## RULES ###################
 
 all: $(NAME)
 
+srcs/%.o : srcs/%.cpp
+	$(CMP) $(FLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
 	$(CMP) $(FLAGS) $(OBJS) -o $(NAME)
-
 
 ################## CLEAN ###################
 

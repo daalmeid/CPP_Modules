@@ -6,15 +6,15 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:11 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/03 12:33:38 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:28:18 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) {
+Cat::Cat(void): Animal() {
 
-	Animal::_type = "Cat";
+	this->_type = "Cat";
 	std::cout << "Cat constructor called" << std::endl;
 }
 
@@ -24,7 +24,7 @@ Cat::~Cat(void) {
 
 }
 
-Cat::Cat(Cat const& src) {
+Cat::Cat(Cat const& src): Animal() {
 
 	*this = src;
 	return ;

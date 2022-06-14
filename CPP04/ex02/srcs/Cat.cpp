@@ -6,16 +6,16 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:11 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/06 16:41:12 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:36:47 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat(void) {
+Cat::Cat(void): AAnimal() {
 
 	std::cout << "Default Cat constructor called" << std::endl;
-	AAnimal::_type = "Cat";
+	this->_type = "Cat";
 	this->catBrain = new Brain;
 }
 
@@ -26,7 +26,7 @@ Cat::~Cat(void) {
 
 }
 
-Cat::Cat(Cat const& src) {
+Cat::Cat(Cat const& src): AAnimal() {
 
 	std::cout << "Copy Cat constructor called" << std::endl;
 	this->catBrain = new Brain;

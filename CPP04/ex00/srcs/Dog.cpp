@@ -6,15 +6,15 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:45 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/03 12:30:47 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/14 11:29:02 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(void) {
+Dog::Dog(void): Animal() {
 
-	Animal::_type = "Dog";
+	this->_type = "Dog";
 	std::cout << "Dog constructor called" << std::endl;
 }
 
@@ -23,7 +23,7 @@ Dog::~Dog(void) {
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-Dog::Dog(Dog const& src) {
+Dog::Dog(Dog const& src): Animal() {
 
 	*this = src;
 	return ;

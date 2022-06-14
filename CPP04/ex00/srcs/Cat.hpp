@@ -6,7 +6,7 @@
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/03 12:30:28 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/03 12:32:59 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:14:13 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ class	Cat: public Animal	 {
 		Cat&	operator=(Cat const& rhs);
 
 		virtual void    makeSound(void) const;
-
-	private:
 
 };
 
