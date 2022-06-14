@@ -12,7 +12,7 @@
 
 ################## Program #################
 
-NAME 	= 		Forms
+NAME 	= 		InternWork
 
 ################## COLORS ##################
 
@@ -33,7 +33,12 @@ FLAGS	=		-Wall -Werror -Wextra -std=c++98
 
 SRCFILE	=		main.cpp\
 				Bureaucrat.cpp\
-				Form.cpp
+				AForm.cpp\
+				ShrubberyCreationForm.cpp\
+				RobotomyRequestForm.cpp\
+				PresidentialPardonForm.cpp\
+				Intern.cpp
+				
 
 SRCCMP	=		$(addprefix srcs/, $(SRCFILE))
 

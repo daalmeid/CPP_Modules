@@ -28,7 +28,6 @@ class RobotomyRequestForm : public AForm
 	RobotomyRequestForm(std::string const target);
 	virtual ~RobotomyRequestForm(void);
 	RobotomyRequestForm(RobotomyRequestForm const & b);
-	RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
 
 	std::string const & getTarget(void) const;
 	virtual void	execute(Bureaucrat const & executor) const;
@@ -36,6 +35,8 @@ class RobotomyRequestForm : public AForm
 	private:
 
 	RobotomyRequestForm(void);
+	RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
+	
 	std::string const	_target;
 
 };

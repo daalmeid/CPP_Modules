@@ -27,11 +27,11 @@ RM		=		rm -f
 ################## COMPILER ################
 
 CMP		=		c++
-FLAGS	=		-Wall -Werror -Wextra -std=c++98 -fsanitize=address
+FLAGS	=		-Wall -Werror -Wextra -std=c++98
 
 ################## FILES ###################
 
-SRCS	=		main.cpp\
+SRCFILE	=		main.cpp\
 				Bureaucrat.cpp\
 				AForm.cpp\
 				ShrubberyCreationForm.cpp\
@@ -39,15 +39,19 @@ SRCS	=		main.cpp\
 				PresidentialPardonForm.cpp
 				
 
-OBJS	=		$(addprefix srcs/, $(SRCS:.cpp=.o))
+SRCCMP	=		$(addprefix srcs/, $(SRCFILE))
+
+OBJS	=		$(patsubst srcs/%.cpp, srcs/%.o, $(SRCCMP))
 
 ################## RULES ###################
 
 all: $(NAME)
 
+srcs/%.o : srcs/%.cpp
+	$(CMP) $(FLAGS) -c $< -o $@
+
 $(NAME): $(OBJS)
 	$(CMP) $(FLAGS) $(OBJS) -o $(NAME)
-
 
 ################## CLEAN ###################
 

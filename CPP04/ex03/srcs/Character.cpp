@@ -21,7 +21,7 @@ Character::Character(std::string const name): _name(name) {
 	//std::cout << "Character constructor called" << std::endl;
 }
 
-Character::Character(Character const & c, std::string const name): _name(name) {
+Character::Character(Character const & c): _name(c._name) {
 
 	_inventory[0] = NULL;
 	_inventory[1] = NULL;

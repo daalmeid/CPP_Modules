@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                       :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+# define SHRUBBERYCREATIONFORM_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include <fstream>
+# include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class Cure: public AMateria
+class ShrubberyCreationForm : public AForm
 {
-	protected:
-
 	public:
 
-	Cure(void);
-	~Cure(void);
-	Cure(Cure const & m);
-	Cure& operator=(Cure const & rhs);
-	
-	virtual AMateria* clone() const;
-	virtual void use(ICharacter& target);
-};
+	ShrubberyCreationForm(std::string const target);
+	virtual ~ShrubberyCreationForm(void);
+	ShrubberyCreationForm(ShrubberyCreationForm const & b);
 
+	std::string const & getTarget(void) const;
+	virtual void	execute(Bureaucrat const & executor) const;
+
+	private:
+
+	ShrubberyCreationForm(void);
+	ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
+
+	std::string const	_target;
+
+};
 
 #endif

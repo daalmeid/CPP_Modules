@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                       :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
 
 # include <iostream>
 # include <string>
 # include <stdexcept>
-# include "Bureaucrat.hpp"
 
-class Form
+class AForm;
+class Bureaucrat
 {
 	public:
 
-	Form(std::string const name, unsigned int const signGrade, unsigned int const execGrade);
-	~Form(void);
-	Form(Form const & b);
+	Bureaucrat(std::string const name, unsigned int grade);
+	~Bureaucrat(void);
+	Bureaucrat(Bureaucrat const & b);
+	Bureaucrat& operator=(Bureaucrat const & rhs);
 
 	class	GradeTooHighException: public std::exception
 	{
@@ -39,25 +40,21 @@ class Form
 	};
 
 	std::string const & getName(void) const;
-	bool getIsSigned(void) const;
-	unsigned int getSignGrade(void) const;
-	unsigned int getExecGrade(void) const;
+	unsigned int getGrade(void) const;
 
-	void	beSigned(Bureaucrat const & b);
-
+	void	gradeUp(void);
+	void	gradeDown(void);
+	void	signForm(bool isSigned, std::string const & formName, std::string const & reason) const;
+	void	executeForm(AForm const & form);
 
 	private:
 
-	Form(void);
-	Form& operator=(Form const & rhs);
-	
+	Bureaucrat(void);
 	std::string const	_name;
-	unsigned int const	_signGrade;
-	unsigned int const	_execGrade;
-	bool				_isSigned;
+	unsigned int		_grade;
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& f);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& b);
 
 #endif

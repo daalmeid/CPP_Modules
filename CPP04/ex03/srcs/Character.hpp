@@ -12,10 +12,8 @@
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
-# include <iostream>
-# include <string>
+
 # include "AMateria.hpp"
-# include "Ice.hpp"
 # include "ICharacter.hpp"
 
 class Character: public ICharacter
@@ -23,7 +21,7 @@ class Character: public ICharacter
 	public:
 	
 	Character(std::string const name);
-	Character(Character const & c, std::string const name);
+	Character(Character const & c);
 	~Character();
 	Character& operator=(Character const & rhs);
 

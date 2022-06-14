@@ -27,7 +27,6 @@ class ShrubberyCreationForm : public AForm
 	ShrubberyCreationForm(std::string const target);
 	virtual ~ShrubberyCreationForm(void);
 	ShrubberyCreationForm(ShrubberyCreationForm const & b);
-	ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
 
 	std::string const & getTarget(void) const;
 	virtual void	execute(Bureaucrat const & executor) const;
@@ -35,6 +34,8 @@ class ShrubberyCreationForm : public AForm
 	private:
 
 	ShrubberyCreationForm(void);
+	ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
+
 	std::string const	_target;
 
 };

@@ -46,6 +46,7 @@ _name(f.getName()), _signGrade(f.getSignGrade()), _execGrade(f.getExecGrade()) {
 
 Form& Form::operator=(Form const & rhs) {
 
+	(void)rhs;
 	std::cout << "Cannot attribute values of one Form to another" << std::endl;
 	return *this;
 }

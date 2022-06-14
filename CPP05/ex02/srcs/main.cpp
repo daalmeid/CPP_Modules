@@ -25,6 +25,7 @@ int	main(void) {
 		ShrubberyCreationForm shrub = ShrubberyCreationForm("House");
 		shrub.beSigned(phil);
 		phil.executeForm(shrub);
+
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
@@ -42,7 +43,10 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+	catch(const std::exception& e)
+	{
+		std::cerr << "Form lacked signature." << std::endl;
+	}
 
 	try
 	{
@@ -68,15 +72,19 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
+	catch(const std::exception& e)
+	{
+		std::cerr << "Form lacked signature." << std::endl;
+	}
 
 	try
 	{
 		Bureaucrat steve = Bureaucrat("Steve", 2);
 		std::cout << steve << " is born" << std::endl;
-		PresidentialPardonForm carl = PresidentialPardonForm("Deathrow Carl");
-		carl.beSigned(steve);
-		steve.executeForm(carl);
+		PresidentialPardonForm carlPardon = PresidentialPardonForm("Deathrow Carl");
+		carlPardon.beSigned(steve);
+		carlPardon.execute(steve);
+		steve.executeForm(carlPardon);
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
@@ -94,6 +102,9 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
+	catch(const std::exception& e)
+	{
+		std::cerr << "Form lacked signature." << std::endl;
+	}
 	return 0;
 }

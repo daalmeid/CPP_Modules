@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                       :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include <cstdlib>
+# include <time.h>
+# include "Bureaucrat.hpp"
+# include "AForm.hpp"
 
-class Cure: public AMateria
+class RobotomyRequestForm : public AForm
 {
-	protected:
-
 	public:
 
-	Cure(void);
-	~Cure(void);
-	Cure(Cure const & m);
-	Cure& operator=(Cure const & rhs);
-	
-	virtual AMateria* clone() const;
-	virtual void use(ICharacter& target);
-};
+	RobotomyRequestForm(std::string const target);
+	virtual ~RobotomyRequestForm(void);
+	RobotomyRequestForm(RobotomyRequestForm const & b);
 
+	std::string const & getTarget(void) const;
+	virtual void	execute(Bureaucrat const & executor) const;
+
+	private:
+
+	RobotomyRequestForm(void);
+	RobotomyRequestForm& operator=(RobotomyRequestForm const & rhs);
+	
+	std::string const	_target;
+
+};
 
 #endif

@@ -43,7 +43,7 @@ int	main(void) {
 	me->equip(tmp);
 	
 	ICharacter* bob = new Character("bob");
-	ICharacter* charles = new Character(*(Character*)me, "charles");
+	ICharacter* charles = new Character(*(Character*)me);
 	std::cout << "slot 0" << std::endl;
 	charles->use(0, *bob);
 	std::cout << "slot 1" << std::endl;

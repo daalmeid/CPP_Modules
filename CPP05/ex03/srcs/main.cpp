@@ -11,23 +11,47 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 int	main(void) {
 
 	try
 	{
-		Bureaucrat phil = Bureaucrat("Phil", 82);
-		std::cout << phil << " is born" << std::endl;
-		phil.gradeDown();
-		std::cout << phil << " was demoted" << std::endl;
-		phil.gradeDown();
-		std::cout << phil << " was demoted" << std::endl;
-		Form	B22 = Form("B22", 100, 82);
-		std::cout << B22 << std::endl;
-		B22.beSigned(phil);
-		std::cout << B22 << std::endl;
-		B22.beSigned(phil);
+		Bureaucrat steve = Bureaucrat("Steve", 2);
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
+		if (rrf != NULL)
+		{
+			rrf->beSigned(steve);
+			steve.executeForm(*rrf);
+			delete rrf;
+		}
+		rrf = someRandomIntern.makeForm("Shrubbery Request", "Bender");
+		if (rrf != NULL)
+		{
+			rrf->beSigned(steve);
+			steve.executeForm(*rrf);
+			delete rrf;
+		}
+		rrf = someRandomIntern.makeForm("Presidential Pardon", "Bender");
+		if (rrf != NULL)
+		{
+			rrf->beSigned(steve);
+			steve.executeForm(*rrf);
+			delete rrf;
+		}
+		rrf = someRandomIntern.makeForm("Wrong file", "Bender");
+		if (rrf != NULL)
+		{
+			rrf->beSigned(steve);
+			steve.executeForm(*rrf);
+			delete rrf;
+		}
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
@@ -37,14 +61,21 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const Form::GradeTooHighException& e)
+	catch(const AForm::GradeTooHighException& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const Form::GradeTooLowException& e)
+	catch(const AForm::GradeTooLowException& e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	
+	catch(const Intern::WrongFormException& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << "Form lacked signature." << std::endl;
+	}
 	return 0;
 }

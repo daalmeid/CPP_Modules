@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                       :+:      :+:    :+:   */
+/*   Intern.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,26 +10,35 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-# define CURE_HPP
+#ifndef INTERN_HPP
+# define INTERN_HPP
 
-# include "AMateria.hpp"
-# include "ICharacter.hpp"
+# include "AForm.hpp"
+# include "ShrubberyCreationForm.hpp"
+# include "RobotomyRequestForm.hpp"
+# include "PresidentialPardonForm.hpp"
 
-class Cure: public AMateria
+class Intern
 {
-	protected:
-
 	public:
 
-	Cure(void);
-	~Cure(void);
-	Cure(Cure const & m);
-	Cure& operator=(Cure const & rhs);
-	
-	virtual AMateria* clone() const;
-	virtual void use(ICharacter& target);
+	Intern(void);
+	~Intern(void);
+	Intern(Intern const & b);
+	Intern& operator=(Intern const & rhs);
+
+	class	WrongFormException: public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
+	AForm*	makeForm(std::string const formType, std::string const target);
+
+	private:
+
 };
 
+std::ostream& operator<<(std::ostream& os, const Intern& b);
 
 #endif
