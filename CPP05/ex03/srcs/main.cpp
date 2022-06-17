@@ -21,7 +21,7 @@ int	main(void) {
 
 	try
 	{
-		Bureaucrat steve = Bureaucrat("Steve", 2);
+		Bureaucrat steve("Steve", 2);
 		Intern someRandomIntern;
 		AForm* rrf;
 		rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
@@ -73,9 +73,9 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::NotSignedException& e)
 	{
-		std::cerr << "Form lacked signature." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return 0;
 }

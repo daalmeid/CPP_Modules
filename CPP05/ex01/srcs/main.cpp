@@ -17,13 +17,9 @@ int	main(void) {
 
 	try
 	{
-		Bureaucrat phil = Bureaucrat("Phil", 82);
+		Bureaucrat phil("Phil", 88);
 		std::cout << phil << " is born" << std::endl;
-		phil.gradeDown();
-		std::cout << phil << " was demoted" << std::endl;
-		phil.gradeDown();
-		std::cout << phil << " was demoted" << std::endl;
-		Form	B22 = Form("B22", 100, 82);
+		Form	B22("B22", 100, 82);
 		std::cout << B22 << std::endl;
 		B22.beSigned(phil);
 		std::cout << B22 << std::endl;

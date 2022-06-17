@@ -50,9 +50,7 @@ std::string const & ShrubberyCreationForm::getTarget(void) const {
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 
-	if (getIsSigned() == false)
-		throw std::exception();
-	checkGrades(executor.getGrade());
+	checkAuth(executor.getGrade());
 	std::ofstream shrubFile;
 	std::string	filename = this->getTarget() + "_shrubbery";
 	shrubFile.open(filename.c_str());

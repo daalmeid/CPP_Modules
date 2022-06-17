@@ -87,8 +87,10 @@ void	AForm::beSigned(Bureaucrat const & b) {
 	}
 }
 
-void	AForm::checkGrades(unsigned int bureauGrade) const {
+void	AForm::checkAuth(unsigned int bureauGrade) const {
 
+	if (getIsSigned() == false)
+		throw AForm::NotSignedException();
 	if (bureauGrade > this->_execGrade)
 		throw AForm::GradeTooLowException();
 }
@@ -101,6 +103,11 @@ const char* AForm::GradeTooHighException::what(void) const  throw() {
 const char* AForm::GradeTooLowException::what(void) const  throw() {
 
 	return ("Grade is too low for this Aform action.");
+}
+
+const char* AForm::NotSignedException::what(void) const  throw() {
+
+	return ("Unsigned forms cannot be executed.");
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& b) {

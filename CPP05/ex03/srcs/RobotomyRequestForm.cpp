@@ -50,9 +50,7 @@ std::string const & RobotomyRequestForm::getTarget(void) const {
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 
-	if (getIsSigned() == false)
-		throw std::exception();
-	checkGrades(executor.getGrade());
+	checkAuth(executor.getGrade());
 	srand(time(NULL));
 	std::cout << "BRRRT BZZZZ BZZZ WEEEEEEEEE STKSTKSTK" << std::endl;
 	if (rand() % 2 == 0)

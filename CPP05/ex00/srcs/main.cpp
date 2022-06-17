@@ -16,7 +16,7 @@ int	main(void) {
 
 	try
 	{
-		Bureaucrat phil = Bureaucrat("Phil", 149);
+		Bureaucrat phil("Phil", 149);
 		std::cout << phil << " is born" << std::endl;
 		phil.gradeDown();
 		std::cout << phil << " was demoted" << std::endl;
@@ -35,7 +35,7 @@ int	main(void) {
 	try
 	{
 		std::cout << "Let's try to create John, grade 200" << std::endl;
-		Bureaucrat john = Bureaucrat("John", 200);
+		Bureaucrat john("John", 200);
 		std::cout << john << " is born, the poor defective bastard" << std::endl;
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
@@ -50,7 +50,7 @@ int	main(void) {
 	try
 	{
 		std::cout << "Let's try to create Phil, grade 0" << std::endl;
-		Bureaucrat phil = Bureaucrat("Phil", 0);
+		Bureaucrat phil("Phil", 0);
 		std::cout << phil << " is born" << std::endl;
 		phil.gradeUp();
 		std::cout << phil << " was promoted" << std::endl;

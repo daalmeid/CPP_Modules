@@ -20,12 +20,12 @@ int	main(void) {
 
 	try
 	{
-		Bureaucrat phil = Bureaucrat("Phil", 100);
+		Bureaucrat phil("Phil", 100);
 		std::cout << phil << " is born" << std::endl;
-		ShrubberyCreationForm shrub = ShrubberyCreationForm("House");
-		shrub.beSigned(phil);
-		phil.executeForm(shrub);
-
+		AForm* shrub = new ShrubberyCreationForm("House");
+		phil.executeForm(*shrub);
+		(*shrub).beSigned(phil);
+		delete shrub;
 	}
 	catch(const Bureaucrat::GradeTooHighException& e)
 	{
@@ -43,16 +43,17 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::NotSignedException& e)
 	{
-		std::cerr << "Form lacked signature." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+	std::cout << std::endl <<std::endl;
 
 	try
 	{
-		Bureaucrat john = Bureaucrat("John", 50);
+		Bureaucrat john("John", 50);
 		std::cout << john << " is born" << std::endl;
-		RobotomyRequestForm robby = RobotomyRequestForm("Robby");
+		RobotomyRequestForm robby("Robby");
 		robby.beSigned(john);
 		john.executeForm(robby);
 	}
@@ -72,16 +73,17 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::NotSignedException& e)
 	{
-		std::cerr << "Form lacked signature." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
+	std::cout << std::endl <<std::endl;
 
 	try
 	{
-		Bureaucrat steve = Bureaucrat("Steve", 2);
+		Bureaucrat steve("Steve", 4);
 		std::cout << steve << " is born" << std::endl;
-		PresidentialPardonForm carlPardon = PresidentialPardonForm("Deathrow Carl");
+		PresidentialPardonForm carlPardon("Deathrow Carl");
 		carlPardon.beSigned(steve);
 		carlPardon.execute(steve);
 		steve.executeForm(carlPardon);
@@ -102,9 +104,9 @@ int	main(void) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::NotSignedException& e)
 	{
-		std::cerr << "Form lacked signature." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 	return 0;
 }

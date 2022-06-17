@@ -114,9 +114,9 @@ void		Bureaucrat::executeForm(AForm const & form) {
 	{
 		std::cerr << e.what() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(const AForm::NotSignedException& e)
 	{
-		std::cerr << "Form lacked signature." << std::endl;
+		std::cerr << e.what() << std::endl;
 	}
 }
 

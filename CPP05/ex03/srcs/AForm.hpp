@@ -35,6 +35,12 @@ class AForm
 			virtual const char* what() const throw();
 	};
 
+		class	NotSignedException: public std::exception
+	{
+		public:
+			virtual const char* what() const throw();
+	};
+
 	std::string const & getName(void) const;
 	bool getIsSigned(void) const;
 	unsigned int getSignGrade(void) const;
@@ -42,7 +48,7 @@ class AForm
 
 	void	beSigned(Bureaucrat const & b);
 	virtual void	execute(Bureaucrat const & executor) const = 0;
-	void	checkGrades(unsigned int bureauGrade) const;
+	void	checkAuth(unsigned int bureauGrade) const;
 
 
 	private:
