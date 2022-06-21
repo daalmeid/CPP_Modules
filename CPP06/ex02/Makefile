@@ -12,7 +12,7 @@
 
 ################## Program #################
 
-NAME 	= 		convert
+NAME 	= 		Dynamic
 
 ################## COLORS ##################
 
@@ -32,7 +32,9 @@ FLAGS	=		-Wall -Werror -Wextra -std=c++98
 ################## FILES ###################
 
 SRCFILE	=		main.cpp\
-				Converter.cpp	
+				Base.cpp\
+				generate.cpp\
+				identify.cpp
 
 SRCCMP	=		$(addprefix srcs/, $(SRCFILE))
 

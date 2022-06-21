@@ -12,7 +12,7 @@
 
 ################## Program #################
 
-NAME 	= 		convert
+NAME 	= 		Reinterpret
 
 ################## COLORS ##################
 
@@ -32,7 +32,7 @@ FLAGS	=		-Wall -Werror -Wextra -std=c++98
 ################## FILES ###################
 
 SRCFILE	=		main.cpp\
-				Converter.cpp	
+				Data.cpp
 
 SRCCMP	=		$(addprefix srcs/, $(SRCFILE))
 

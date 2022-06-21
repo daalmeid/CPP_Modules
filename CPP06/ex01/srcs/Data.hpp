@@ -1,27 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/17 12:17:00 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/21 11:22:32 by daalmeid         ###   ########.fr       */
+/*   Created: 2022/06/21 12:17:24 by daalmeid          #+#    #+#             */
+/*   Updated: 2022/06/21 12:17:25 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Converter.hpp"
 
+#ifndef DATA_HPP
+# define DATA_HPP
 
-int	main(int argc, char **argv) {
-	
-	if (argc != 2)
-	{
-		std::cout << "\033[31mWrong use: the program only accepts 1 string as argument." << std::endl;
-		return 1;
-	}
-	Converter conv;
-	std::string val(argv[1]);
-	conv.convSelector(val);
-	return 0;
-}
+# include <iostream>
+# include <string>
+
+class	Data {
+
+	public:
+
+		Data(std::string question);
+		~Data(void);
+		Data(Data const& src);
+		Data&	operator=(Data const& rhs);
+		std::string	getQuestion(void) const;
+
+		uintptr_t	serialize(Data* ptr);
+		Data*	deserialize(uintptr_t raw);
+
+	private:
+
+		Data(void);
+		std::string	_question;
+
+};
+
+#endif
