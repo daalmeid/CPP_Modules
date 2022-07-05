@@ -1,7 +1,7 @@
 
 #include "Span.hpp"
 
-Span::Span(void) {
+Span::Span(void): _maxSize(0) {
 
 }
 
@@ -13,7 +13,7 @@ Span::~Span(void) {
 
 }
 
-Span::Span(Span const& src) {
+Span::Span(Span const& src): _maxSize(src._maxSize) {
 
 	*this = src;
 	return ;
@@ -22,10 +22,7 @@ Span::Span(Span const& src) {
 Span&	Span::operator=(Span const& rhs) {
 
 	if (this != &rhs)
-	{
-		this->_maxSize = rhs._maxSize;
 		this->_nums = rhs._nums;
-	}
 	return *this;
 }
 
@@ -37,7 +34,7 @@ void	Span::addNumber(int nextNum) {
 		throw Span::FullException();
 }
 
-int	Span::shortestSpan(void) {
+unsigned int	Span::shortestSpan(void) {
 
 	std::vector<int>	cpyNums(this->_nums);
 
@@ -47,20 +44,18 @@ int	Span::shortestSpan(void) {
 	{
 		std::vector<int>::iterator itEnd = cpyNums.end();
 
-		int	minSpan = INT32_MAX;
-
-		if (std::is_sorted(cpyNums.begin(), itEnd) == false)
-			std::stable_sort(cpyNums.begin(),itEnd);
+		std::stable_sort(cpyNums.begin(),itEnd);
 		// for (std::vector<int>::iterator it = cpyNums.begin(); it != cpyNums.end(); it++)
 		// {
 		// 	std::cout << *it << " ";
 		// }
-		// std::cout << std::endl;
+		//std::cout << std::endl;
+		
+		unsigned int	minSpan = 4294967295;	//check for macro!!!
+		
 		for (std::vector<int>::iterator it = cpyNums.begin(); it + 1 != itEnd; it++)
 		{
-			int tmpSpan = *(it + 1) - *it;
-			if (tmpSpan < 0)
-				tmpSpan *= -1;
+			unsigned int tmpSpan = static_cast< unsigned int> (*(it + 1) - *it);
 			if (tmpSpan < minSpan)
 				minSpan = tmpSpan;
 		}
@@ -68,7 +63,7 @@ int	Span::shortestSpan(void) {
 	}
 }
 
-int	Span::longestSpan(void) {
+unsigned int	Span::longestSpan(void) {
 
 	if(this->_nums.size() <= 1)
 		throw Span::EmptyException();	
@@ -87,6 +82,15 @@ void	Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator
 	this->_nums.insert(this->_nums.end(), begin, end);
 }
 
+void	Span::printRange(void) {
+
+	for (std::vector<int>::iterator it = this->_nums.begin(); it != this->_nums.end(); it++)
+	{
+		std::cout << *it << " ";
+	}
+	std::cout << std::endl;
+}
+
 const char*	Span::EmptyException::what(void) const  throw() {
 
 	return ("Empty or only one element in vector, operation impossible.");
@@ -94,5 +98,5 @@ const char*	Span::EmptyException::what(void) const  throw() {
 
 const char*	Span::FullException::what(void) const  throw() {
 
-	return ("Not enough space in vector.");
+	return ("Not enough space to add more numbers.");
 }

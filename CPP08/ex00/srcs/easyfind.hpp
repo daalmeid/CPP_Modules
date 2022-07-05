@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   easyfind.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:40:42 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/23 17:24:08 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/07/05 15:35:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <list>
 
 template <typename T >
-typename T::iterator	firstOcFinder(T & ct, int num) {
+typename T::iterator	easyFind(T & ct, int num) {
 
 	typename T::iterator index = std::find(ct.begin(), ct.end(), num);
 	if (index != ct.end())

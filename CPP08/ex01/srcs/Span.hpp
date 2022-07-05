@@ -15,12 +15,13 @@ class	Span {
 		Span(unsigned int N);
 		~Span(void);
 		Span(Span const& src);
-		Span&	operator=(Span const& rhs);
 
 		void	addNumber(int nextNum);
-		int		shortestSpan(void);
-		int		longestSpan(void);
+		unsigned int		shortestSpan(void);
+		unsigned int		longestSpan(void);
 		void	addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+
+		void	printRange(void);
 
 		class EmptyException: public std::exception {
 
@@ -37,8 +38,10 @@ class	Span {
 	private:
 
 		Span(void);
-		std::vector<int>	_nums;
-		unsigned int		_maxSize;
+		Span&	operator=(Span const& rhs);
+
+		std::vector<int>		_nums;
+		unsigned int const		_maxSize;
 
 };
 

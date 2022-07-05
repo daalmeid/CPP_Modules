@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: daalmeid <daalmeid@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 19:14:36 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/06/24 16:50:48 by daalmeid         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:39:49 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,10 @@ int main ()
   MutantStack<int,std::vector<int> > third;  // empty stack using vector
   MutantStack<int,std::vector<int> > fourth (myvector);
 
-  std::cout << "size of first: " << first.size() << '\n';
-  std::cout << "size of second: " << second.size() << '\n';
-  std::cout << "size of third: " << third.size() << '\n';
-  std::cout << "size of fourth: " << fourth.size() << '\n';
+  std::cout << "size of first: " << first.size() << std::endl;
+  std::cout << "size of second: " << second.size() << std::endl;
+  std::cout << "size of third: " << third.size() << std::endl;
+  std::cout << "size of fourth: " << fourth.size() << std::endl;
 
   return 0;
 }
