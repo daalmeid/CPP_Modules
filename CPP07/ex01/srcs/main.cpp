@@ -13,17 +13,17 @@
 #include "Iter.hpp"
 #include "Bureaucrat.hpp"
 
-void	print10x(int num) {
+void	print10x(int const & num) {
 
 	std::cout << num * 10 << std::endl;
 }
 
-void	printCap(char c) {
+void	printCap(char const & c) {
 
 	std::cout << static_cast<char>(c - ('a' - 'A')) << std::endl;
 }
 
-void	printInfoBur(Bureaucrat b) {
+void	printInfoBur(Bureaucrat const & b) {
 
 	std::cout << "Name: " << b.getName() << ", grade: " << b.getGrade() << std::endl;
 }

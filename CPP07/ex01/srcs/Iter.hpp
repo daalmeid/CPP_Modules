@@ -15,7 +15,7 @@
 # include <iostream>
 
 template <typename T >
-void	iter(T const arr[], size_t len, void (*f)(T)) {
+void	iter(T *arr, size_t len, void (*f)(const T&)) {
 
 	for (size_t i = 0; i < len; i++) {
 
