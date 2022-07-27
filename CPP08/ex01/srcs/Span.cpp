@@ -51,7 +51,7 @@ unsigned int	Span::shortestSpan(void) {
 		// }
 		//std::cout << std::endl;
 		
-		unsigned int	minSpan = 4294967295;	//check for macro!!!
+		unsigned int	minSpan = 4294967295;
 		
 		for (std::vector<int>::iterator it = cpyNums.begin(); it + 1 != itEnd; it++)
 		{

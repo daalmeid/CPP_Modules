@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: daalmeid <daalmeid@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/21 18:26:32 by daalmeid          #+#    #+#             */
-/*   Updated: 2022/07/05 15:35:38 by marvin           ###   ########.fr       */
+/*   Updated: 2022/07/27 15:43:22 by daalmeid         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "easyFind.hpp"
+#include "easyfind.hpp"
 
 int main( void ) {
 

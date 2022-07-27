@@ -16,12 +16,12 @@ class	Span {
 		~Span(void);
 		Span(Span const& src);
 
-		void	addNumber(int nextNum);
-		unsigned int		shortestSpan(void);
-		unsigned int		longestSpan(void);
-		void	addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		void			addNumber(int nextNum);
+		unsigned int	shortestSpan(void);
+		unsigned int	longestSpan(void);
+		void			addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 
-		void	printRange(void);
+		void			printRange(void);
 
 		class EmptyException: public std::exception {
 
